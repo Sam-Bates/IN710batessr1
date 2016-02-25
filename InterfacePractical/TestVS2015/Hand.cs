@@ -33,6 +33,7 @@ namespace TestVS2015
         public void sortHand()
         {
             CardsInHand.Sort();
+            CardsInHand.Reverse();
         }
     }
 }
