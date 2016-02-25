@@ -57,6 +57,8 @@ namespace TestVS2015
                 }
                 currentHand.ComputeHCP();
                 dealtHands.Add(currentHand);
+                dealtHands[h].sortHand();
+                
             } // all hands dealt
             return dealtHands;
         } // end Deal

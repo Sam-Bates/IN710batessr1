@@ -17,7 +17,7 @@ namespace TestVS2015
     }
 
     // Note the different ways to use the Property (get;set;) synntax feature
-    public class Card
+    public class Card : IComparable
     {
         // A read-write Property
         public SuitValue Suit {  get; set;}
@@ -31,7 +31,6 @@ namespace TestVS2015
                 return shortRank;
             }
         }
-
         // A Property with logic on write (set)
         private RankValue rank;
         public RankValue Rank
@@ -40,7 +39,6 @@ namespace TestVS2015
             {
                 return rank;
             }
- 
             set
             {
                 rank = value;
@@ -68,9 +66,6 @@ namespace TestVS2015
                 } // end switch
             } // end set
         }
-
-
-
         public int HCP
         {
             get; set;
@@ -97,12 +92,20 @@ namespace TestVS2015
                     HCP = 1;
                     break;
             }
-
         }
-
         public override string ToString()
         {
             return (Rank.ToString() + " of " + Suit.ToString());
+        }
+        public int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+
+            Card otherCard = obj as Card;
+            if (otherCard != null)
+                return this.Rank.CompareTo(otherCard.Rank);
+            else
+                throw new ArgumentException("Object is not a Card");
         }
     }
 }

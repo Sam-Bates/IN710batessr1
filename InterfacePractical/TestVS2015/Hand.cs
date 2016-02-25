@@ -30,5 +30,9 @@ namespace TestVS2015
 
             return 0;
         }
+        public void sortHand()
+        {
+            CardsInHand.Sort();
+        }
     }
 }
