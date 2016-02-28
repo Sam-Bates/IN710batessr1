@@ -16,5 +16,25 @@ namespace MovieDatabase
         {
             InitializeComponent();
         }
+        private void addMovie_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void deleteMovie_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void search_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printAll_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
