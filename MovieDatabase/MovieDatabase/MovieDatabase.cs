@@ -8,21 +8,33 @@ namespace MovieDatabase
 {
     public class MovieDatabase
     {
-       
+
         Dictionary<int, Movie> movieTable = new Dictionary<int, Movie>();
 
-        public void addMovie(int year, String title, String director)
+        public bool addMovie(int year, String title, String director)
         {
             Movie movie = new Movie(year, title, director);
-            movieTable.Add(movie.Year, movie);
+
+            if (movieTable.ContainsKey(year))
+            {
+                return false;
+            }
+            else
+            {
+                movieTable.Add(movie.Year, movie);
+                return true;
+            }
+
         }
-        public void delMovie(int key)
+        public bool delMovie(int key)
         {
             if (movieTable.ContainsKey(key))
             {
                 movieTable.Remove(key);
+                return true;
             }
-            
+            return false;
+
         }
         public String search(int key)
         {
@@ -50,9 +62,8 @@ namespace MovieDatabase
                     finalString.Append("----------\n");
                     finalString.Append(currMovie.Year.ToString() + "\n");
                     finalString.Append(currMovie.ToString() + "\n");
-                    finalString.Append("----------\n");
                 }
-                
+
             }
             else
             {

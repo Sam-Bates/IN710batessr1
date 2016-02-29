@@ -23,7 +23,7 @@ namespace MovieDatabase
 
         public override string ToString()
         {
-            return Year.ToString() + " " + Title + ", " + Director;
+            return  Title + ", " + Director;
         }
     }
 }
