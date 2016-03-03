@@ -49,8 +49,6 @@ namespace MovieDatabase
         }
         public String printAll()
         {
-            StringBuilder finalString = new StringBuilder();
-
             if (movieTable.Count() != 0)
             {
                 List<int> keys = new List<int>(movieTable.Keys);
