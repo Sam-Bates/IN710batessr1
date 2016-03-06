@@ -8,13 +8,13 @@ namespace Stack
 {
     public class Node
     {
-        public String str { get; set; }
-        public Node next { get; set; }
+        public String Str { get; set; }
+        public Node Next { get; set; }
 
-        public Node(String str)
+        public Node(String Str)
         {
-            this.str = str;
-            next = null;
+            this.Str = Str;
+            Next = null;
         }
     }
 }
