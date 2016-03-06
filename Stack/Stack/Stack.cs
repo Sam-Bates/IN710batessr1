@@ -32,9 +32,8 @@ namespace Stack
         {
             //get latest string
             String popstr = tail.Str;
-            //delete latest node
-            Node nodewalker = head;
             //start at node head
+            Node nodewalker = head;
             if (nodewalker == null)
             {
                 return "Error: head is null";
@@ -54,13 +53,30 @@ namespace Stack
             return popstr;
         }
         public String Peek()
-        { 
+        {
+            return tail.Str;
         }
         public int Count()
-        { 
+        {
+            Node nodewalker = head;
+            int count = 0;
+            if (nodewalker == null)
+            {
+                return 0;
+            }
+            while (nodewalker.Next != null)
+            {
+                count++;
+            }
+            return count;
         }
         public bool IsEmpty()
-        { 
+        {
+            if (head == null)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
