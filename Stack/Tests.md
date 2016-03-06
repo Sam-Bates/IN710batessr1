@@ -17,6 +17,6 @@
 |              |Push n items onto a stack, then call Count|Return n|
 |              |Count is called on a stack that all strings have been popped|Return 0|
 ||||
-|IsEmpty()     |IsEmpty is ca,led on a newly created stack|Return true|
+|bool IsEmpty()|IsEmpty is called on a newly created stack|Return true|
 |              |IsEmpty is called on a stack that all strings have been popped|Return true|
 |              |IsEmpty is called on a stack that has strings in it|Return false|
