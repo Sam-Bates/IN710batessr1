@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Stack
 {
-    public class Stack
+    public class StackList
     {
         Node head;
         Node tail;
-        public Stack()
+        public StackList()
         {
             head = null;
             tail = null;
@@ -26,35 +26,43 @@ namespace Stack
             else
             {
                 tail.Next = node;
+                tail = node;
             }
         }
         public String Pop()
         {
             //get latest string
-            String popstr = tail.Str;
+            String popstr = Peek();
             //start at node head
-            Node nodewalker = head;
-            if (nodewalker == null)
+            
+            if (head == tail)
             {
-                return "Error: head is null";
+                head = null;
+                tail = null;
             }
             else
             {
+                Node nodewalker = head;
                 //go to node.next until node.next = tail
                 while (nodewalker.Next != tail)
                 {
                     nodewalker = nodewalker.Next;
                 }
-                //make that node tail
+                nodewalker.Next = null;
                 tail = nodewalker;
-                //set next node to null
-                tail.Next = null;
             }
             return popstr;
         }
         public String Peek()
         {
-            return tail.Str;
+            String str;
+            if (tail == null)
+            {
+                throw new System.InvalidOperationException("Empty stack");
+            }
+
+            str = tail.Str;
+            return str;
         }
         public int Count()
         {
@@ -67,8 +75,9 @@ namespace Stack
             while (nodewalker.Next != null)
             {
                 count++;
+                nodewalker = nodewalker.Next;
             }
-            return count;
+            return count+1;
         }
         public bool IsEmpty()
         {
