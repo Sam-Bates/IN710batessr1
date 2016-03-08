@@ -46,12 +46,7 @@ namespace Game_Character
 
         private void btnBattle_Click(object sender, EventArgs e)
         {
-            foreach (int indexChecked in checkedListBox1.CheckedIndices)
-            {
-                // The indexChecked variable contains the index of the item.
-                MessageBox.Show("Index#: " + indexChecked.ToString() + ", is checked. Checked state is:" +
-                                checkedListBox1.GetItemCheckState(indexChecked).ToString() + ".");
-            }
+            checkedListBox1.CheckedItems;
         }
     }
 }

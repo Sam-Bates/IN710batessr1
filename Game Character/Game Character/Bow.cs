@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Game_Character
 {
-    class Bow : IWeapon
+    public class Bow : Weapon
     {
-
-        public string UseWeapon()
+        public Bow()
         {
-            return "I shoot with my Bow!";
+            verb = "Shoot";
+            noun = "Bow";
         }
     }
 }

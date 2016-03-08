@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Game_Character
 {
-    class Club : IWeapon
+    public class Club : Weapon
     {
-
-        public string UseWeapon()
+        public Club()
         {
-            return "I club with my Club!";
+            verb = "Club";
+            noun = "Club";
         }
+    }
     }
 }
