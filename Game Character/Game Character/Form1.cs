@@ -12,6 +12,7 @@ namespace Game_Character
 {
     public partial class Form1 : Form
     {
+        public List<Character> characterList = new List<Character>();
         public Form1()
         {
             InitializeComponent();
@@ -20,10 +21,27 @@ namespace Game_Character
             //Employee = character class
             //abstract method declaim()
 
-            List<Character> characterList = new List<Character>();
+            
 
-            characterList.Add(new King("Stewie"));
+            characterList.Add(new King("Robert", listBox1));
+            characterList.Add(new Queen("Cercei", listBox1));
+            characterList.Add(new Knight("Jaime", listBox1));
+            characterList.Add(new Troll("Tyrion", listBox1));
+        }
 
+        private void btnAddCharacter_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBattle_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

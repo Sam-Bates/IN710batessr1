@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Game_Character
 {
-    class Mace : IWeapon
+    class King : Character, IWeapon
     {
-
-        public string UseWeapon()
+        public King(String Name, ListBox listbox)
+            : base(Name, listbox)
         {
-            return "I smash with my mace";
+            weapon = new Mace();
         }
     }
 }

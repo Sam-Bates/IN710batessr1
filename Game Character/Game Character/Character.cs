@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Game_Character
 {
@@ -14,11 +15,10 @@ namespace Game_Character
             get { return Name; }
             set { Name = value; }
         }
-        public Character(string Name)
+        public Character(string Name, ListBox listbox)
         {
             this.Name = Name;
         }
-
         public string UseWeapon()
         {
             return weapon.UseWeapon();
@@ -26,6 +26,10 @@ namespace Game_Character
         public override String ToString()
         {
             return "My name is " + Name + "!";
+        }
+        public string Declaim()
+        {
+            return weapon.UseWeapon();
         }
     }
 }

@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Game_Character
 {
-    class Troll
+    class Club : IWeapon
     {
+
+        public string UseWeapon()
+        {
+            return "I club with my Club!";
+        }
     }
 }

@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Game_Character
 {
-    class Knight
+    class Mace : IWeapon
     {
+
+        public string UseWeapon()
+        {
+            return "I smash with my Mace!";
+        }
     }
 }
