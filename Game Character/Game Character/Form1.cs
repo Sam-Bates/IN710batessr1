@@ -41,7 +41,6 @@ namespace Game_Character
 
         private void btnBattle_Click(object sender, EventArgs e)
         {
-            
         }
     }
 }

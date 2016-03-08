@@ -8,8 +8,6 @@ namespace Game_Character
 {
     public interface IWeapon
     {
-        string UseWeapon();
-
-        public abstract String Declaim();
+        String UseWeapon();
     }
 }

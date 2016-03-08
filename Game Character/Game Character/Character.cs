@@ -7,13 +7,15 @@ using System.Windows.Forms;
 
 namespace Game_Character
 {
-    abstract class Character
+    public abstract class Character
     {
         public IWeapon weapon;
+        private string name;
+
         protected string Name
         {
-            get { return Name; }
-            set { Name = value; }
+            get { return name; }
+            set { name = value; }
         }
         public Character(string Name, ListBox listbox)
         {
