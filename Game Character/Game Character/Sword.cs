@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Game_Character
 {
-    class Sword : IWeapon
+    public class Sword : Weapon
     {
-
-        public string UseWeapon()
+        public Sword()
         {
-            return "I slash with my Sword!";
+            verb = "Slash";
+            noun = "Sword";
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Game_Character
         public IWeapon weapon;
         private string name;
 
-        protected string Name
+        public string Name
         {
             get { return name; }
             set { name = value; }
@@ -27,11 +27,11 @@ namespace Game_Character
         }
         public override String ToString()
         {
-            return "My name is " + Name + "!";
+            
         }
         public string Declaim()
         {
-            return weapon.UseWeapon();
+            return "My name is " + Name + "!";
         }
     }
 }
