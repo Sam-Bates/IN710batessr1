@@ -8,12 +8,24 @@ namespace Game_Character
 {
     abstract class Character
     {
-        String Name;
-        //default weapon
-        public Character(String Name)
+        public IWeapon weapon;
+        protected string Name
+        {
+            get { return Name; }
+            set { Name = value; }
+        }
+        public Character(string Name)
         {
             this.Name = Name;
         }
-        public abstract String Declaim();
+
+        public string UseWeapon()
+        {
+            return weapon.UseWeapon();
+        }
+        public override String ToString()
+        {
+            return "My name is " + Name + "!";
+        }
     }
 }

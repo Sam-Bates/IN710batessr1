@@ -20,6 +20,10 @@ namespace Game_Character
             //Employee = character class
             //abstract method declaim()
 
+            List<Character> characterList = new List<Character>();
+
+            characterList.Add(new King("Stewie"));
+
         }
     }
 }

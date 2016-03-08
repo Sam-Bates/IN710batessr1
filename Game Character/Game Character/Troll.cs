@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game_Character
 {
-    class King : Character, IWeapon
+    class Troll
     {
-        public King(String Name)
-            : base(Name)
-        {
-            weapon = new Mace();
-        }
     }
 }
