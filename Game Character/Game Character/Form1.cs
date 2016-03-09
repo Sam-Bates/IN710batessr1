@@ -21,7 +21,7 @@ namespace Game_Character
             //Employee = character class
             //abstract method declaim()
 
-            
+
 
             characterList.Add(new King("Robert", listBox1));
             characterList.Add(new Queen("Cercei", listBox1));
@@ -31,22 +31,90 @@ namespace Game_Character
             {
                 checkedListBox1.Items.Add(characterList[i].Name);
             }
-            
+
+        }
+        public void updateScreen()
+        {
+            checkedListBox1.Items.Clear();
+
+            foreach (Character character in characterList)
+            {
+                checkedListBox1.Items.Add(character.Name);
+            }
         }
 
         private void btnAddCharacter_Click(object sender, EventArgs e)
         {
-           
+            Character newCharacter;
+            if (rdKing.Checked)
+            {
+                newCharacter = new King(txtName.Text, listBox1);
+                characterList.Add(newCharacter);
+            }
+            else if (rdQueen.Checked)
+            {
+                newCharacter = new Queen(txtName.Text, listBox1);
+                characterList.Add(newCharacter);
+            }
+            else if (rdKnight.Checked)
+            {
+                newCharacter = new Knight(txtName.Text, listBox1);
+                characterList.Add(newCharacter);
+            }
+            else if (rdTroll.Checked)
+            {
+                newCharacter = new Troll(txtName.Text, listBox1);
+                characterList.Add(newCharacter);
+            }
+            else
+            {
+                MessageBox.Show("Please select a character class.");
+            }
+            updateScreen();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            List<int> changers = new List<int>();
+            foreach (int checkedIndex in checkedListBox2.CheckedIndices)
+            {
+                if (rdSword.Checked)
+                {
+                    characterList[checkedIndex].weapon = new Sword();
+                }
+                if (rdMace.Checked)
+                {
+                    characterList[checkedIndex].weapon = new Mace();
+                }
+                if (rdBow.Checked)
+                {
+                    characterList[checkedIndex].weapon = new Bow();
+                }
+                if (rdClub.Checked)
+                {
+                    characterList[checkedIndex].weapon = new Club();
+                }
+            }
 
         }
 
         private void btnBattle_Click(object sender, EventArgs e)
         {
-            checkedListBox1.CheckedItems;
+            listBox1.Items.Clear();
+            List<int> players = new List<int>();
+            foreach (int checkedIndex in checkedListBox1.CheckedIndices)
+            {
+                players.Add(checkedIndex);
+            }
+            for (int j = 0; j < players.Count(); j++)
+            {
+                String[] substrings = characterList[players[j]].ToString().Split(',');
+                for (int l = 0; l < substrings.Length; l++)
+                {
+                    listBox1.Items.Add(substrings[l]);
+                }
+                listBox1.Items.Add(" ");
+            }
         }
     }
 }

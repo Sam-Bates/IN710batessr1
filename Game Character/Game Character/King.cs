@@ -7,12 +7,17 @@ using System.Windows.Forms;
 
 namespace Game_Character
 {
-    class King : Character, IWeapon
+    class King : Character
     {
         public King(String Name, ListBox listbox)
             : base(Name, listbox)
         {
             weapon = new Mace();
         }
+        public override string Declaim()
+        {
+            return "I am a King";
+        }
+        
     }
 }

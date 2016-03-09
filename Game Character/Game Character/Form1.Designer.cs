@@ -45,6 +45,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rdClub = new System.Windows.Forms.RadioButton();
             this.rdBow = new System.Windows.Forms.RadioButton();
             this.rdMace = new System.Windows.Forms.RadioButton();
             this.rdSword = new System.Windows.Forms.RadioButton();
@@ -246,16 +247,29 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.rdClub);
             this.groupBox2.Controls.Add(this.rdBow);
             this.groupBox2.Controls.Add(this.rdMace);
             this.groupBox2.Controls.Add(this.rdSword);
             this.groupBox2.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(16, 334);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(161, 107);
+            this.groupBox2.Size = new System.Drawing.Size(161, 140);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "New Weapon";
+            // 
+            // rdClub
+            // 
+            this.rdClub.AutoSize = true;
+            this.rdClub.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdClub.Location = new System.Drawing.Point(13, 104);
+            this.rdClub.Name = "rdClub";
+            this.rdClub.Size = new System.Drawing.Size(65, 25);
+            this.rdClub.TabIndex = 3;
+            this.rdClub.TabStop = true;
+            this.rdClub.Text = "Club";
+            this.rdClub.UseVisualStyleBackColor = true;
             // 
             // rdBow
             // 
@@ -376,6 +390,7 @@
         private System.Windows.Forms.RadioButton rdBow;
         private System.Windows.Forms.RadioButton rdMace;
         private System.Windows.Forms.RadioButton rdSword;
+        private System.Windows.Forms.RadioButton rdClub;
     }
 }
 

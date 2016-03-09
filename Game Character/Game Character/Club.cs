@@ -14,5 +14,4 @@ namespace Game_Character
             noun = "Club";
         }
     }
-    }
 }

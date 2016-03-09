@@ -17,6 +17,11 @@ namespace Game_Character
             get { return name; }
             set { name = value; }
         }
+        public IWeapon Weapon
+        {
+            get { return weapon; }
+            set { weapon = value; }
+        }
         public Character(string Name, ListBox listbox)
         {
             this.Name = Name;
@@ -27,11 +32,12 @@ namespace Game_Character
         }
         public override String ToString()
         {
-            
+            return nameCall() + "," + Declaim() + "," + UseWeapon(); 
         }
-        public string Declaim()
+        public string nameCall()
         {
             return "My name is " + Name + "!";
         }
+        public abstract string Declaim();
     }
 }

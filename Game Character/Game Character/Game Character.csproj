@@ -62,6 +62,7 @@
     <Compile Include="Queen.cs" />
     <Compile Include="Sword.cs" />
     <Compile Include="Troll.cs" />
+    <Compile Include="Weapon.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
