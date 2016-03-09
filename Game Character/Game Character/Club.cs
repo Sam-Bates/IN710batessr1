@@ -10,7 +10,7 @@ namespace Game_Character
     {
         public Club()
         {
-            verb = "Club";
+            verb = "Smack";
             noun = "Club";
         }
     }

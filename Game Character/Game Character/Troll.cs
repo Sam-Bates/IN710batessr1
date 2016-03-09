@@ -9,8 +9,8 @@ namespace Game_Character
 {
     class Troll : Character
     {
-        public Troll(String Name, ListBox listbox)
-            : base(Name, listbox)
+        public Troll(String Name)
+            : base(Name)
         {
             weapon = new Club();
         }

@@ -9,8 +9,8 @@ namespace Game_Character
 {
     class King : Character
     {
-        public King(String Name, ListBox listbox)
-            : base(Name, listbox)
+        public King(String Name)
+            : base(Name)
         {
             weapon = new Mace();
         }

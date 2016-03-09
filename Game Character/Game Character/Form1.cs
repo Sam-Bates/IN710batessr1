@@ -16,30 +16,27 @@ namespace Game_Character
         public Form1()
         {
             InitializeComponent();
-            //IPayComputingMachine = IWeapon 
-            //useWeapon(), can change at any time, character needs to say different things depending on it's current weapon
-            //Employee = character class
-            //abstract method declaim()
-
-
-
-            characterList.Add(new King("Robert", listBox1));
-            characterList.Add(new Queen("Cercei", listBox1));
-            characterList.Add(new Knight("Jaime", listBox1));
-            characterList.Add(new Troll("Tyrion", listBox1));
+            characterList.Add(new King("Robert"));
+            characterList.Add(new Queen("Cercei"));
+            characterList.Add(new Knight("Jaime"));
+            characterList.Add(new Troll("Tyrion"));
             for (int i = 0; i < characterList.Count; i++)
             {
                 checkedListBox1.Items.Add(characterList[i].Name);
+                checkedListBox2.Items.Add(characterList[i].Name);
             }
 
         }
         public void updateScreen()
         {
+            //resets and re-populates all of the list boxes
             checkedListBox1.Items.Clear();
+            checkedListBox2.Items.Clear();
 
             foreach (Character character in characterList)
             {
                 checkedListBox1.Items.Add(character.Name);
+                checkedListBox2.Items.Add(character.Name);
             }
         }
 
@@ -48,22 +45,22 @@ namespace Game_Character
             Character newCharacter;
             if (rdKing.Checked)
             {
-                newCharacter = new King(txtName.Text, listBox1);
+                newCharacter = new King(txtName.Text);
                 characterList.Add(newCharacter);
             }
             else if (rdQueen.Checked)
             {
-                newCharacter = new Queen(txtName.Text, listBox1);
+                newCharacter = new Queen(txtName.Text);
                 characterList.Add(newCharacter);
             }
             else if (rdKnight.Checked)
             {
-                newCharacter = new Knight(txtName.Text, listBox1);
+                newCharacter = new Knight(txtName.Text);
                 characterList.Add(newCharacter);
             }
             else if (rdTroll.Checked)
             {
-                newCharacter = new Troll(txtName.Text, listBox1);
+                newCharacter = new Troll(txtName.Text);
                 characterList.Add(newCharacter);
             }
             else
@@ -102,15 +99,19 @@ namespace Game_Character
         {
             listBox1.Items.Clear();
             List<int> players = new List<int>();
+            //loop over the checkedlistBox and add each selected player to the list
             foreach (int checkedIndex in checkedListBox1.CheckedIndices)
             {
                 players.Add(checkedIndex);
             }
+            //loop over the selected players 
             for (int j = 0; j < players.Count(); j++)
             {
+                //call the toString method and split it into a string array
                 String[] substrings = characterList[players[j]].ToString().Split(',');
                 for (int l = 0; l < substrings.Length; l++)
                 {
+                    //add each item from the string array into it's own line on the list box
                     listBox1.Items.Add(substrings[l]);
                 }
                 listBox1.Items.Add(" ");

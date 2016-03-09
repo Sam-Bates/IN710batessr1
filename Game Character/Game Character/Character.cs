@@ -22,7 +22,7 @@ namespace Game_Character
             get { return weapon; }
             set { weapon = value; }
         }
-        public Character(string Name, ListBox listbox)
+        public Character(string Name)
         {
             this.Name = Name;
         }
