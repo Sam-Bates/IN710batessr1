@@ -8,6 +8,8 @@ namespace Time
 {
     interface IClock
     {
-        void Clock();
+        void updateClock();
+        void show();
+        void hide();
     }
 }
