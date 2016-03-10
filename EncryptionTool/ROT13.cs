@@ -10,12 +10,38 @@ namespace EncryptionTool
     {
         public string Encrypt(String str)
         {
-            char[] chars = str.ToCharArray();
+            char[] chars = str.ToArray();
+            
             for (int i = 0; i < chars.Length; i++)
             {
-                chars[i] += (char)13;
+                int index = (int)chars[i];
+                
+                if (index >= 'a' && index <= 'z')
+                {
+                    if (index > 'm')
+                    {
+                        index -= 13;
+                    }
+                    else
+                    {
+                        index += 13;
+                    }
+                }
+                else if (index >= 'A' && index <= 'Z')
+                {
+                    if (index > 'M')
+                    {
+                        index -= 13;
+                    }
+                    else
+                    {
+                        index += 13;
+                    }
+                }
+                chars[i] = (char)index;
             }
-            return new string(chars);
+            string final =  new string(chars);
+            return final;
         }
     }
 }
