@@ -27,15 +27,16 @@ namespace EncryptionTool
             {
                 encryptor = new Reversal();
             }
-            String input = TextBox1.Text;
-            outTextBox.Clear();
-            outTextBox.Text = encryptor.Encrypt(input);
-
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            try
+            {
+                String input = TextBox1.Text;
+                outTextBox.Clear();
+                outTextBox.Text = encryptor.Encrypt(input);
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Please fill in the input field");
+            }
         }
     }
 }

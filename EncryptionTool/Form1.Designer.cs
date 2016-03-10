@@ -33,6 +33,8 @@
             this.ROT13 = new System.Windows.Forms.RadioButton();
             this.Reversal = new System.Windows.Forms.RadioButton();
             this.outTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TextBox1
@@ -41,7 +43,6 @@
             this.TextBox1.Name = "TextBox1";
             this.TextBox1.Size = new System.Drawing.Size(100, 20);
             this.TextBox1.TabIndex = 0;
-            this.TextBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // Encrypt
             // 
@@ -56,7 +57,7 @@
             // ROT13
             // 
             this.ROT13.AutoSize = true;
-            this.ROT13.Location = new System.Drawing.Point(178, 46);
+            this.ROT13.Location = new System.Drawing.Point(118, 28);
             this.ROT13.Name = "ROT13";
             this.ROT13.Size = new System.Drawing.Size(60, 17);
             this.ROT13.TabIndex = 2;
@@ -67,7 +68,7 @@
             // Reversal
             // 
             this.Reversal.AutoSize = true;
-            this.Reversal.Location = new System.Drawing.Point(178, 69);
+            this.Reversal.Location = new System.Drawing.Point(118, 51);
             this.Reversal.Name = "Reversal";
             this.Reversal.Size = new System.Drawing.Size(67, 17);
             this.Reversal.TabIndex = 3;
@@ -77,16 +78,36 @@
             // 
             // outTextBox
             // 
-            this.outTextBox.Location = new System.Drawing.Point(12, 83);
+            this.outTextBox.Location = new System.Drawing.Point(12, 96);
             this.outTextBox.Name = "outTextBox";
             this.outTextBox.Size = new System.Drawing.Size(100, 20);
             this.outTextBox.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Input";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 80);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Output";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(186, 133);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.outTextBox);
             this.Controls.Add(this.Reversal);
             this.Controls.Add(this.ROT13);
@@ -106,6 +127,8 @@
         private System.Windows.Forms.RadioButton ROT13;
         private System.Windows.Forms.RadioButton Reversal;
         private System.Windows.Forms.TextBox outTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
