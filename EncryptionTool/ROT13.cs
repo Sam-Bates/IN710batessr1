@@ -11,10 +11,11 @@ namespace EncryptionTool
         public string Encrypt(String str)
         {
             char[] chars = str.ToCharArray();
-            foreach (char currentchar in chars)
+            for (int i = 0; i < chars.Length; i++)
             {
-
+                chars[i] += (char)13;
             }
+            return new string(chars);
         }
     }
 }

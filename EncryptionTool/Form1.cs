@@ -27,6 +27,15 @@ namespace EncryptionTool
             {
                 encryptor = new Reversal();
             }
+            String input = TextBox1.Text;
+            outTextBox.Clear();
+            outTextBox.Text = encryptor.Encrypt(input);
+
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -10,7 +10,9 @@ namespace EncryptionTool
     {
         public string Encrypt(String str)
         {
-            throw new NotImplementedException();
+            char[] charArray = str.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
         }
     }
 }
