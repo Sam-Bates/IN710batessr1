@@ -31,8 +31,18 @@ namespace IN710_4._1_Animal_Shelter_Solution_2014
         //=======================================================================
         public List<Critter> CritterQuery(string speciesName)
         {
-            /* YOUR CODE HERE */
-            throw new NotImplementedException();    // Remove after you write the method
+            List<Critter> critterQueryList = new List<Critter>();
+
+            ESpecies currentSpecies = (ESpecies)System.Enum.Parse(typeof(ESpecies), speciesName);
+
+            foreach (Critter c in critterList)
+            {
+                if (c.Species == currentSpecies)
+                {
+                    critterQueryList.Add(c);
+                }
+            }
+            return critterQueryList;
         }
 
 
@@ -80,8 +90,5 @@ namespace IN710_4._1_Animal_Shelter_Solution_2014
                 displayBox.Items.Add(c.ToString());
             }
         }
-
-       
-
     }
 }
