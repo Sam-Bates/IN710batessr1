@@ -10,20 +10,20 @@ namespace AnimalWorld
 {
     public abstract class Continent
     {
-        public const int ANIMAL_COUNT = 4;
+        public const int ANIMAL_COUNT = 3;
 
         protected ListBox displayBox;
         protected Random rd;
         protected int nAnimalTypes;
-        protected Graphics graphics;
+        protected Graphics canvas;
         protected IAnimalFactory animalFactory;
 
-        protected Continent(ListBox displayBox, Random rd, Graphics graphics)
+        protected Continent(ListBox displayBox, Random rd, Graphics canvas)
         {
             this.displayBox = displayBox;
             this.rd = rd;
             //this.nAnimalTypes = nAnimalTypes;
-            this.graphics = graphics;
+            this.canvas = canvas;
         }
         public void runSim()
         {
@@ -33,7 +33,7 @@ namespace AnimalWorld
                 int animalChoice = rd.Next(ANIMAL_COUNT);
 
                 currAnimal = animalFactory.createAnimal(animalChoice);
-                graphics.DrawImage(currAnimal.Picture, 20, 20 + (i * 120));
+                canvas.DrawImage(currAnimal.Picture, 20,20  + (i * 120), 150, 100);
             }
         }
     }

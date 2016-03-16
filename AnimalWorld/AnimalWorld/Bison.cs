@@ -14,6 +14,8 @@ namespace AnimalWorld
             family = "Herbivore";
             food = "Grass";
             picture = new System.Drawing.Bitmap("Bison.jpg");
+            
+            
         }
     }
 }

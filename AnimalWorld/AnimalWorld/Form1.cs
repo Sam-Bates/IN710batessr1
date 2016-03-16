@@ -19,14 +19,24 @@ namespace AnimalWorld
         public Form1()
         {
             InitializeComponent();
-            Graphics graphics = this.CreateGraphics();
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            graphics = this.CreateGraphics();
             rd = new Random();
-
         }
 
         private void btNorthAmerica_Click(object sender, EventArgs e)
         {
             NorthAmerica NorthAmerica = new NorthAmerica(listBox1, rd, graphics);
+            NorthAmerica.runSim();
         }
+
+        private void btAustralia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

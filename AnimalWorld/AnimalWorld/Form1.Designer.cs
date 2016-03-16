@@ -51,6 +51,7 @@
             this.btAustralia.TabIndex = 6;
             this.btAustralia.Text = "Australia";
             this.btAustralia.UseVisualStyleBackColor = true;
+            this.btAustralia.Click += new System.EventHandler(this.btAustralia_Click);
             // 
             // listBox1
             // 
@@ -70,6 +71,7 @@
             this.Controls.Add(this.btNorthAmerica);
             this.Name = "Form1";
             this.Text = "Animal World";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
