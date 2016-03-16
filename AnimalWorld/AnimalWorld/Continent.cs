@@ -22,18 +22,19 @@ namespace AnimalWorld
         {
             this.displayBox = displayBox;
             this.rd = rd;
-            //this.nAnimalTypes = nAnimalTypes;
             this.canvas = canvas;
         }
         public void runSim()
         {
             Animal currAnimal;
+            displayBox.Items.Clear();
             for (int i = 0; i < ANIMAL_COUNT; i++)
             {
                 int animalChoice = rd.Next(ANIMAL_COUNT);
 
                 currAnimal = animalFactory.createAnimal(animalChoice);
                 canvas.DrawImage(currAnimal.Picture, 20,20  + (i * 120), 150, 100);
+                displayBox.Items.Add(currAnimal);
             }
         }
     }

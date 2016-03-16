@@ -14,7 +14,6 @@ namespace AnimalWorld
     {
         Graphics graphics;
         Random rd;
-        int nAnimalTypes;
 
         public Form1()
         {
@@ -34,9 +33,8 @@ namespace AnimalWorld
 
         private void btAustralia_Click(object sender, EventArgs e)
         {
-
+            Australia oz = new Australia(listBox1, rd, graphics);
+            oz.runSim();
         }
-
-
     }
 }
