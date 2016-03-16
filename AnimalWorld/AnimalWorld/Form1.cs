@@ -36,5 +36,11 @@ namespace AnimalWorld
             Australia oz = new Australia(listBox1, rd, graphics);
             oz.runSim();
         }
+
+        private void btAsia_Click(object sender, EventArgs e)
+        {
+            Asia Asia = new Asia(listBox1, rd, graphics);
+            Asia.runSim();
+        }
     }
 }
