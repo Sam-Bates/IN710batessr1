@@ -10,7 +10,7 @@ namespace AnimalWorld
 {
     public abstract class Continent
     {
-        public const int ANIMAL_COUNT = 3;
+        public const int ANIMAL_COUNT = 4;
 
         protected ListBox displayBox;
         protected Random rd;

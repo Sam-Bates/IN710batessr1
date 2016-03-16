@@ -23,6 +23,9 @@ namespace AnimalWorld
                 case 2:
                     newAnimal = new Eagle();
                     break;
+                case 3:
+                    newAnimal = new Groundhog();
+                    break;
             }
             return newAnimal;
         }

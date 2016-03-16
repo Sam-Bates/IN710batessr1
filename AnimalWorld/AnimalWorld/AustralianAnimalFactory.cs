@@ -24,6 +24,9 @@ namespace AnimalWorld
                 case 2:
                     newAnimal = new Kangaroo();
                     break;
+                case 3:
+                    newAnimal = new TasmanianDevil();
+                    break;
             }
             return newAnimal;
         }
