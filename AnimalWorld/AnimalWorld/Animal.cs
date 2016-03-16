@@ -14,7 +14,7 @@ namespace AnimalWorld
         protected string food;
         protected Bitmap picture;
         public Bitmap Picture{ get { return picture; } }
-        public override virtual string ToString()
+        public override string ToString()
         {
             return "I am a " + name + ", I am a " + family + ", I eat " + food;
         }

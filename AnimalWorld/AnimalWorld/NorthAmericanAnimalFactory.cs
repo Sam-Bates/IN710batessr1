@@ -8,7 +8,6 @@ namespace AnimalWorld
 {
     class NorthAmericanAnimalFactory : IAnimalFactory
     {
-
         public Animal createAnimal(int animalCode)
         {
             Animal newAnimal = null;
