@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 
 namespace CustomPC
 {
-    abstract class PCPart
+    public abstract class PCPart
     {
-        protected string name;
-        protected int price;
-
-        public abstract override string ToString()
+        private string name;
+        private int price;
+        public string Name
         {
-            return name + "," + price;
+            get { return name; }
+            set { name = value; }
+        }
+        public int Price
+        {
+            get { return price; }
+            set { price = value; }
         }
     }
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace CustomPC
 {
-    interface IPCMaker
+    public interface IPCMaker
     {
         PCPart makeCPU();
-        PCPart makeMemory();
+        PCPart makeMEM();
         PCPart makeGPU();
     }
 }

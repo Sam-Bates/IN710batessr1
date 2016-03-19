@@ -10,8 +10,8 @@ namespace CustomPC
     {
         public MultiMediaGPU()
         {
-            name = "Gigabyte Radeon R9 390X";
-            price = 749;
+            Name = "Gigabyte Radeon R9 390X";
+            Price = 749;
         }
     }
 }

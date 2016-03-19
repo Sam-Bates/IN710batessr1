@@ -10,8 +10,8 @@ namespace CustomPC
     {
         public BusinessMemory()
         {
-            name = "DDR3 8GB";
-            price = 100;
+            Name = "DDR3 8GB";
+            Price = 100;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace CustomPC
             return currCPU;
         }
 
-        public PCPart makeMemory()
+        public PCPart makeMEM()
         {
             PCPart currMem = new BusinessMemory();
             return currMem;

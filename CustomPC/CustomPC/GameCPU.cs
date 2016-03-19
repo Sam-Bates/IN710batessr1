@@ -10,8 +10,8 @@ namespace CustomPC
     {
         public GameCPU()
         {
-            name = "Intel i7 4930K 3.9GHz";
-            price = 594;
+            Name = "Intel i7 4930K 3.9GHz";
+            Price = 594;
         }
     }
 }

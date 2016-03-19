@@ -10,9 +10,9 @@ namespace CustomPC
     {
         public BusinessGPU()
         {
-            name = "Intel® HD Graphics onboard";
+            Name = "Intel® HD Graphics onboard";
             //this is 0 because it comes with the CPU
-            price = 0;
+            Price = 0;
         }
     }
 }

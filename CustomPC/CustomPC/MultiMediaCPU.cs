@@ -10,8 +10,8 @@ namespace CustomPC
     {
         public MultiMediaCPU()
         {
-            name = "Intel i7-3820 3.8GHz";
-            price = 305;
+            Name = "Intel i7-3820 3.8GHz";
+            Price = 305;
         }
     }
 }

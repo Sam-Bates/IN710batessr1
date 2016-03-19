@@ -10,8 +10,8 @@ namespace CustomPC
     {
         public GameMemory()
         {
-            name = "DDR4 16GB";
-            price = 279;
+            Name = "DDR4 16GB";
+            Price = 279;
         }
     }
 }

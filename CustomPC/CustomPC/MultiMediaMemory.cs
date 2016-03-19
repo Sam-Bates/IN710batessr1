@@ -10,8 +10,8 @@ namespace CustomPC
     {
         public MultiMediaMemory()
         {
-            name = "DDR3 32GB";
-            price = 400;
+            Name = "DDR3 32GB";
+            Price = 400;
         }
     }
 }

@@ -10,8 +10,8 @@ namespace CustomPC
     {
         public BusinessCPU()
         {
-            name = "Intel i3-6098P 3.6GHz";
-            price = 117;
+            Name = "Intel i3-6098P 3.6GHz";
+            Price = 117;
         }
     }
 }
