@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace BicycleObserver
 {
-    public class Subject
+    public class Subject : ISubject
     {
-        private List<Observer> observerList;
+        private List<IObserver> observerList;
         
         public int CurrentRPM { get; set; }
 
         public Subject()
         {
-            observerList = new List<Observer>();
+            observerList = new List<IObserver>();
         }
-        public void AddObserver(Observer o)
+        public void AddObserver(IObserver o)
         {
             observerList.Add(o);
         }
-        public void RemoverObserver(Observer o)
+        public void RemoveObserver(IObserver o)
         {
             observerList.Remove(o);
         }

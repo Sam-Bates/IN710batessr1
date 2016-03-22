@@ -7,15 +7,15 @@ using System.Windows.Forms;
 
 namespace BicycleObserver
 {
-    public class ObserverCalorieDisplay : Observer
+    public class ObserverSpeedDisplay : Observer
     {
-        public ObserverCalorieDisplay(Label displayLabel, Subject bikeSubject)
+        public ObserverSpeedDisplay(Label displayLabel, Subject bikeSubject)
             : base(displayLabel, bikeSubject)
         {
         }
         public override void Update(int currentRPM)
         {
-            currentComputedValue = currentRPM * 5;
+            
             Display();
         }
     }

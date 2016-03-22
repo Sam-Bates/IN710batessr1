@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace BicycleObserver
 {
-    public abstract class Observer
+    public abstract class Observer : IObserver
     {
         protected int currentRPM;
         protected double currentComputedValue;
@@ -25,7 +25,7 @@ namespace BicycleObserver
         }
         public abstract void Update(int currentRPM);
 
-        public void DisplayData()
+        public void Display()
         {
             displayLabel.Text = currentComputedValue.ToString("F2");
         }

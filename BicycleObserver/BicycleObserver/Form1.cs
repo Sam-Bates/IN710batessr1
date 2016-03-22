@@ -15,6 +15,7 @@ namespace BicycleObserver
         Subject subject;
         ObserverRPMDisplay RPM;
         ObserverCalorieDisplay CAL;
+        ObserverSpeedDisplay DIS;
         public Form1()
         {
             InitializeComponent();
@@ -25,13 +26,13 @@ namespace BicycleObserver
             subject = new Subject();
             RPM = new ObserverRPMDisplay(label1, subject);
             CAL = new ObserverCalorieDisplay(label2, subject);
-
+            DIS = new ObserverSpeedDisplay(label3, subject);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int a = Int32.Parse(textBox1.Text);
-            subject.CurrentRPM = a;
+            int RPM = Int32.Parse(textBox1.Text);
+            subject.CurrentRPM = RPM;
             subject.NotifyObservers();
         }
     }
