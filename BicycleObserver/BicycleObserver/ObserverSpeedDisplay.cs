@@ -15,7 +15,7 @@ namespace BicycleObserver
         }
         public override void Update(int currentRPM)
         {
-            
+            currentComputedValue = ((currentRPM * 2.05) * 60) * 0.001;
             Display();
         }
     }

@@ -54,8 +54,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="ObserverCalorieDisplay.cs" />
-    <Compile Include="ObserverDistanceDisplay.cs" />
     <Compile Include="ObserverRPMDisplay.cs" />
+    <Compile Include="ObserverSpeedDisplay.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Subject.cs" />
