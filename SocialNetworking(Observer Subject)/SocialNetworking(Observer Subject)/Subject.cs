@@ -10,6 +10,7 @@ namespace SocialNetworking_Observer_Subject_
     {
         public List<IObserver> Friends;
         public string status;
+        public DateTime date;
         public Subject()
         {
             Friends = new List<IObserver>();
@@ -26,12 +27,14 @@ namespace SocialNetworking_Observer_Subject_
         {
             foreach (IObserver currObserver in Friends)
             {
-                currObserver.Update(status);
+                currObserver.Update(status, date);
             }
         }
-        public void UpdateStatus(string status)
+        public void UpdateStatus(string status, DateTime date)
         {
             this.status = status;
+            this.date = date;
+            NotifyObservers();
         }
     }
 }

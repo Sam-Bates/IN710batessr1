@@ -8,7 +8,7 @@ namespace SocialNetworking_Observer_Subject_
 {
     public interface IObserver
     {
-        void Update();
+        void Update(string status, DateTime date);
         void Display();
     }
 }
