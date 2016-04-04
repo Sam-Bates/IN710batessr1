@@ -28,31 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ScoreButton = new System.Windows.Forms.Button();
+            this.CorrectBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.IncorrectBox = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.AdultRB = new System.Windows.Forms.RadioButton();
+            this.ChildRB = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
-            // button1
+            // ScoreButton
             // 
-            this.button1.Location = new System.Drawing.Point(12, 80);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Score";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ScoreButton.Location = new System.Drawing.Point(12, 80);
+            this.ScoreButton.Name = "ScoreButton";
+            this.ScoreButton.Size = new System.Drawing.Size(75, 23);
+            this.ScoreButton.TabIndex = 0;
+            this.ScoreButton.Text = "Score";
+            this.ScoreButton.UseVisualStyleBackColor = true;
+            this.ScoreButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // CorrectBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(130, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.CorrectBox.Location = new System.Drawing.Point(130, 8);
+            this.CorrectBox.Name = "CorrectBox";
+            this.CorrectBox.Size = new System.Drawing.Size(100, 20);
+            this.CorrectBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -72,12 +73,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Incorrect Answers";
             // 
-            // textBox2
+            // IncorrectBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(130, 39);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
+            this.IncorrectBox.Location = new System.Drawing.Point(130, 39);
+            this.IncorrectBox.Name = "IncorrectBox";
+            this.IncorrectBox.Size = new System.Drawing.Size(100, 20);
+            this.IncorrectBox.TabIndex = 4;
             // 
             // listBox1
             // 
@@ -87,41 +88,41 @@
             this.listBox1.Size = new System.Drawing.Size(205, 147);
             this.listBox1.TabIndex = 5;
             // 
-            // radioButton1
+            // AdultRB
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(223, 109);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(49, 17);
-            this.radioButton1.TabIndex = 6;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Adult";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.AdultRB.AutoSize = true;
+            this.AdultRB.Location = new System.Drawing.Point(223, 109);
+            this.AdultRB.Name = "AdultRB";
+            this.AdultRB.Size = new System.Drawing.Size(49, 17);
+            this.AdultRB.TabIndex = 6;
+            this.AdultRB.TabStop = true;
+            this.AdultRB.Text = "Adult";
+            this.AdultRB.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // ChildRB
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(223, 132);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(48, 17);
-            this.radioButton2.TabIndex = 7;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Child";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.ChildRB.AutoSize = true;
+            this.ChildRB.Location = new System.Drawing.Point(223, 132);
+            this.ChildRB.Name = "ChildRB";
+            this.ChildRB.Size = new System.Drawing.Size(48, 17);
+            this.ChildRB.TabIndex = 7;
+            this.ChildRB.TabStop = true;
+            this.ChildRB.Text = "Child";
+            this.ChildRB.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.ChildRB);
+            this.Controls.Add(this.AdultRB);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.IncorrectBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CorrectBox);
+            this.Controls.Add(this.ScoreButton);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -131,14 +132,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button ScoreButton;
+        private System.Windows.Forms.TextBox CorrectBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox IncorrectBox;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton AdultRB;
+        private System.Windows.Forms.RadioButton ChildRB;
     }
 }
 

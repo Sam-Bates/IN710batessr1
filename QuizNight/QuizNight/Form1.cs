@@ -18,7 +18,26 @@ namespace QuizNight
         public Form1()
         {
             InitializeComponent();
+            CorrectBox.Text = "0";
+            IncorrectBox.Text = "0";
+            AdultRB.Checked = true;
         }
-        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int correct = Convert.ToInt32(CorrectBox.Text);
+            int incorrect = Convert.ToInt32(IncorrectBox.Text);
+            if (AdultRB.Checked)
+            {
+                scoreComputer = new ScoreDelegate(Scorer.AdultScore);
+            }
+            else if (ChildRB.Checked)
+            {
+                scoreComputer = new ScoreDelegate(Scorer.ChildScore);
+            }
+            int score = scoreComputer(correct, incorrect);
+            listBox1.Items.Clear();
+            listBox1.Items.Add("Score: " + score);
+        }
     }
 }
