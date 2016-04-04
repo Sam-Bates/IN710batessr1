@@ -14,6 +14,9 @@ namespace GardenReporter2016
     {
 
         GardenManager gardenManager;
+
+        public delegate string GardenDelegate();
+        GardenDelegate gdelegate;
         public Form1()
         {
             InitializeComponent();
@@ -48,12 +51,24 @@ namespace GardenReporter2016
 
         private void btnArea_Click(object sender, EventArgs e)
         {
-            /* YOUR CODE HERE */
+            gdelegate = new GardenDelegate(gardenManager.GetGardenAreas);
+            display();
         }
 
         private void btnCharges_Click(object sender, EventArgs e)
         {
-            /* YOUR CODE HERE */
+            gdelegate = new GardenDelegate(gardenManager.GetOwnerBalances);
+            display();
         }
+        private void display()
+        {
+            listBox1.Items.Clear();
+            String[] substrings = gdelegate().Split(',');
+            for (int i = 0; i < substrings.Length; i++)
+            {
+                listBox1.Items.Add(substrings[i]);
+            }
+        }
+        
     }
 }

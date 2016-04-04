@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GardenReporter2016
 {
@@ -22,7 +23,7 @@ namespace GardenReporter2016
             string reportString = "";
             for (int i = 0; i < gardens.Count; i++)
             {
-                reportString += String.Format("{0,-14}:{1,8:f2}", gardens[i].OwnerName, gardens[i].GetArea() + "\n");
+                reportString += String.Format("{0,-14}:{1,8:f2}", gardens[i].OwnerName, gardens[i].GetArea() + ",");
                 
             }
             return reportString;
@@ -32,7 +33,7 @@ namespace GardenReporter2016
             string reportString = "";
             for (int i = 0; i < gardens.Count; i++)
             {
-                reportString = String.Format("{0,-14}:{1,8:C2}", gardens[i].OwnerName, gardens[i].GetAccountBalance());
+                reportString += String.Format("{0,-14}:{1,8:C2}", gardens[i].OwnerName, gardens[i].GetAccountBalance() + ",");
             }
             return reportString;
         }
