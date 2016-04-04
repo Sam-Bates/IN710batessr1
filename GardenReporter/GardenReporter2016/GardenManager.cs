@@ -24,7 +24,6 @@ namespace GardenReporter2016
             for (int i = 0; i < gardens.Count; i++)
             {
                 reportString += String.Format("{0,-14}:{1,8:f2}", gardens[i].OwnerName, gardens[i].GetArea() + ",");
-                
             }
             return reportString;
         }
