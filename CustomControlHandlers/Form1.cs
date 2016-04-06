@@ -17,7 +17,10 @@ namespace CustomControlHandlers
             InitializeComponent();
             Random r = new Random();
             
-            CustomHandler customHandler = new CustomHandler(r.Next(100));
+            CustomHandler customHandler1 = new CustomHandler(r.Next(100), button1);
+            CustomHandler customHandler2 = new CustomHandler(r.Next(100), button1);
+
+
         }
         private void button1_Click(object sender, EventArgs e)
         {

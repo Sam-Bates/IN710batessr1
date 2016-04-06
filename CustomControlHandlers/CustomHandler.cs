@@ -18,10 +18,12 @@ namespace CustomControlHandlers
             this.button = button;
 
             EventHandler handler = new EventHandler(CustomButtonHandler);
+
+            button.Click += handler;
         }
         public void CustomButtonHandler(object obj, EventArgs e)
         {
-            MessageBox.Show("test");
+            MessageBox.Show("This is a custom Handler" + " My code is: " + code + " my type is " + this.GetType().ToString() + " I am responding to " + button.Name.ToString());
         }
         
     }
