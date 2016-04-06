@@ -19,7 +19,7 @@ namespace FireAlarm
             switch (fe.FireCategory)
             {
                 case EFireCategory.MINOR:
-                    message += " the fire extinguisher.";
+                    message += " get the fire extinguisher.";
                     break;
                 case EFireCategory.SERIOUS:
                     message += " call the fire department.";

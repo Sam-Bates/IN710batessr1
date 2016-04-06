@@ -36,17 +36,18 @@
             // 
             // fireBT
             // 
-            this.fireBT.Location = new System.Drawing.Point(12, 12);
+            this.fireBT.Location = new System.Drawing.Point(45, 12);
             this.fireBT.Name = "fireBT";
             this.fireBT.Size = new System.Drawing.Size(121, 59);
             this.fireBT.TabIndex = 0;
             this.fireBT.Text = "Fire";
             this.fireBT.UseVisualStyleBackColor = true;
+            this.fireBT.Click += new System.EventHandler(this.fireBT_Click);
             // 
             // minorRB
             // 
             this.minorRB.AutoSize = true;
-            this.minorRB.Location = new System.Drawing.Point(25, 77);
+            this.minorRB.Location = new System.Drawing.Point(77, 77);
             this.minorRB.Name = "minorRB";
             this.minorRB.Size = new System.Drawing.Size(51, 17);
             this.minorRB.TabIndex = 1;
@@ -57,7 +58,7 @@
             // seriousRB
             // 
             this.seriousRB.AutoSize = true;
-            this.seriousRB.Location = new System.Drawing.Point(25, 100);
+            this.seriousRB.Location = new System.Drawing.Point(77, 100);
             this.seriousRB.Name = "seriousRB";
             this.seriousRB.Size = new System.Drawing.Size(60, 17);
             this.seriousRB.TabIndex = 2;
@@ -68,7 +69,7 @@
             // infernoRB
             // 
             this.infernoRB.AutoSize = true;
-            this.infernoRB.Location = new System.Drawing.Point(25, 123);
+            this.infernoRB.Location = new System.Drawing.Point(77, 123);
             this.infernoRB.Name = "infernoRB";
             this.infernoRB.Size = new System.Drawing.Size(58, 17);
             this.infernoRB.TabIndex = 3;
@@ -80,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(143, 146);
+            this.ClientSize = new System.Drawing.Size(204, 231);
             this.Controls.Add(this.infernoRB);
             this.Controls.Add(this.seriousRB);
             this.Controls.Add(this.minorRB);
