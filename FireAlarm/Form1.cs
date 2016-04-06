@@ -14,6 +14,7 @@ namespace FireAlarm
     {
         public FireAlarmSubject subject;
         public InstructionsObserver instObserver;
+        public BeepObserver beepObserver;
         EFireCategory currentFire;
 
         public Form1()
@@ -21,6 +22,7 @@ namespace FireAlarm
             InitializeComponent();
             subject = new FireAlarmSubject();
             instObserver = new InstructionsObserver(subject);
+            beepObserver = new BeepObserver(subject);
         }
 
         private void fireBT_Click(object sender, EventArgs e)

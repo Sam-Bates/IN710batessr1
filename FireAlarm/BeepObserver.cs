@@ -1,35 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FireAlarm
 {
-    public class InstructionsObserver : FireAlarmObserverBase
+    public class BeepObserver : FireAlarmObserverBase
     {
-        public InstructionsObserver(FireAlarmSubject subject) : base (subject)
+        [DllImport("Kernel32.dll")]
+        public static extern bool Beep(int freq, int duration);
+        public BeepObserver(FireAlarmSubject subject) : base(subject)
         {
         }
+
         public override void FireAlarmHandlerMethod(object fireSubject, FireAlarmEventArgs fe)
         {
-            String message = "Fire is " + fe.FireCategory.ToString() + ".";
             switch (fe.FireCategory)
             {
                 case EFireCategory.MINOR:
-                    message += " Get the fire extinguisher.";
+                    Beep(800, 1000);
                     break;
                 case EFireCategory.SERIOUS:
-                    message += " Call the fire department.";
+                    Beep(1000, 1000);
                     break;
                 case EFireCategory.INFERNO:
-                    message += " Evacuate the building.";
+                    Beep(1200, 1000);
                     break;
                 default:
                     break;
             }
-            MessageBox.Show(message);
         }
     }
 }
+

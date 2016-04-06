@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BeepObserver.cs" />
     <Compile Include="FireAlarmEventArgs.cs" />
     <Compile Include="FireAlarmObserverBase.cs" />
     <Compile Include="FireAlarmSubject.cs" />
