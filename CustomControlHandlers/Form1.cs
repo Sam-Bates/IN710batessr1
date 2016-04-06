@@ -15,6 +15,13 @@ namespace CustomControlHandlers
         public Form1()
         {
             InitializeComponent();
+            Random r = new Random();
+            
+            CustomHandler customHandler = new CustomHandler(r.Next(100));
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This is the forms handler");
         }
     }
 }
