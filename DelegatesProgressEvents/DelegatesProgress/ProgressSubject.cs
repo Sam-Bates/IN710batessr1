@@ -13,7 +13,7 @@ namespace DelegatesProgress
 
         public void SlowMethod()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 100; i++)
             {
                 System.Threading.Thread.Sleep(500);
                 OnUpdateEvent();

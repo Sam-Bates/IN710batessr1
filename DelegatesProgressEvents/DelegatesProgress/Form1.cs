@@ -22,7 +22,7 @@ namespace DelegatesProgress
         {
             InitializeComponent();
             slowWorker = new ProgressSubject();
-            //udObserver = new UpDownObserver(slowWorker, numericUpDown1);
+            udObserver = new UpDownObserver(slowWorker, numericUpDown1);
             pbObserver = new ProgressBarObserver(slowWorker, progressBar1);
         }
 
