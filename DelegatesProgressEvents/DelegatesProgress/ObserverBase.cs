@@ -17,6 +17,6 @@ namespace DelegatesProgress
 
             subject.UpdateEvent += handler;
         }
-        public abstract void EventCode(object obj, EventArgs e);
+        public abstract void EventCode(object obj, CustomEventArgs e);
     }
 }

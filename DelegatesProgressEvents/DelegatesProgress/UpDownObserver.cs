@@ -15,9 +15,9 @@ namespace DelegatesProgress
             this.nud = nud;
         }
 
-        public override void EventCode(object obj, EventArgs e)
+        public override void EventCode(object obj, CustomEventArgs e)
         {
-            nud.Value++;
+            e.nud.Value++;
         }
     }
 }

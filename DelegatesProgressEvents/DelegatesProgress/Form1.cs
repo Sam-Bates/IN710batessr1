@@ -21,7 +21,7 @@ namespace DelegatesProgress
         public Form1()
         {
             InitializeComponent();
-            slowWorker = new ProgressSubject();
+            slowWorker = new ProgressSubject(numericUpDown1, trackBar1, progressBar1);
             udObserver = new UpDownObserver(slowWorker, numericUpDown1);
             pbObserver = new ProgressBarObserver(slowWorker, progressBar1);
         }
