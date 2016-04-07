@@ -9,7 +9,7 @@ namespace DelegatesProgress
     public class ProgressSubject
     {
         //observers bind code to this event
-        public event EventHandler OnUpdateEvent;
+        public event EventHandler UpdateEvent;
 
         public void SlowMethod()
         {
@@ -17,6 +17,14 @@ namespace DelegatesProgress
             {
                 System.Threading.Thread.Sleep(500);
                 OnUpdateEvent();
+            }
+        }
+        public void OnUpdateEvent()
+        {
+            EventArgs e = new EventArgs();
+            if (UpdateEvent != null)
+            {
+                UpdateEvent(this, e);
             }
         }
     }

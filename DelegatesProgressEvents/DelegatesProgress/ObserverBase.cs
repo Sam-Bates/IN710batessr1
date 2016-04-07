@@ -15,7 +15,7 @@ namespace DelegatesProgress
 
             EventHandler handler = new EventHandler(EventCode);
 
-            subject.OnUpdateEvent += handler;
+            subject.UpdateEvent += handler;
         }
         public abstract void EventCode(object obj, EventArgs e);
     }

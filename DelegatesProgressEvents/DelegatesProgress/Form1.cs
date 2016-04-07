@@ -15,11 +15,15 @@ namespace DelegatesProgress
     {
 
         ProgressSubject slowWorker;
+        UpDownObserver udObserver;
+        ProgressBarObserver pbObserver;
 
         public Form1()
         {
             InitializeComponent();
             slowWorker = new ProgressSubject();
+            //udObserver = new UpDownObserver(slowWorker, numericUpDown1);
+            pbObserver = new ProgressBarObserver(slowWorker, progressBar1);
         }
 
         private void button1_Click(object sender, EventArgs e)

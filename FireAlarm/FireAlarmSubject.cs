@@ -20,6 +20,5 @@ namespace FireAlarm
                 FireEvent(this, fe);
             }
         }
-
     }
 }
