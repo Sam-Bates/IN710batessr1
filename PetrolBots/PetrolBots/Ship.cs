@@ -41,14 +41,14 @@ namespace PetrolBots
         {
             if (shipLocation.X >= (500 - shipSize * 2) || (shipLocation.X <= 1))
             {
-                shipLocation.X = shipLocation.X - (shipVelocity.X * 2);
+                shipLocation.X = shipLocation.X - (shipVelocity.X * 4);
             }
             if (shipLocation.Y >= (399 - shipSize) || shipLocation.Y <= 1)
             {
-                shipLocation.Y = shipLocation.Y - (shipVelocity.Y * 2);
+                shipLocation.Y = shipLocation.Y - (shipVelocity.Y * 4);
             }
 
-            usePetrol();
+            
         }
         public void OnEmptyEvent()
         {
@@ -75,21 +75,23 @@ namespace PetrolBots
             //if sailing
             if (sailing)
             {
+                usePetrol();
                 if (petrol == 1)
                 {
                     OnEmptyEvent();
+                    sailing = false;
                 }
             }
-
             //if fueling
-            if (!sailing)
+            else
             {
+                refuel();
                 if (petrol == 100)
                 {
                     onFullEvent();
+                    sailing = true;
                 }
             }
-
         }
         public void drawShip()
         {
