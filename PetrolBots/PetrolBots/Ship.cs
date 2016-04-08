@@ -9,56 +9,104 @@ namespace PetrolBots
 {
     public class Ship
     {
-        public delegate void OutOfFuelEventHandler(object shipSubject, EventArgs e);
+        public delegate void OutOfFuelEventHandler(object shipSubject, ShipLocationEventArgs e);
         public event OutOfFuelEventHandler OutOfFuelEvent;
 
-        public Point ShipLocation;
-        public Graphics mainCanvas;
-        public int size;
-        public Random rand;
-        public Color shipColour;
+        public delegate void FullOfFuelEventHandler(object shipSubject, EventArgs e);
+        public event FullOfFuelEventHandler FullOfFuelEvent;
+
         public int petrol;
+        public Random rand;
+        public Graphics mainCanvas;
+        public Point shipLocation;
+        public int shipSize;
+        public Color shipColour;
+        public Point shipVelocity;
+        public bool sailing;
+
 
         public Ship(int size, Graphics mainCanvas, Random rand)
         {
-            this.size = size;
+            this.shipSize = size;
             this.mainCanvas = mainCanvas;
             this.rand = rand;
-            ShipLocation.X = 50;
-            ShipLocation.Y = 50;
+            shipLocation.X = 50;
+            shipLocation.Y = 50;
+            petrol = 100;
+            sailing = true;
+            shipVelocity = new Point(rand.Next(-3, 3), rand.Next(-3, 3));
+
         }
         public void moveShip()
         {
-            int random = rand.Next(3);
-            if (random == 0)
+            if (shipLocation.X >= (500 - shipSize * 2) || (shipLocation.X <= 1))
             {
-                ShipLocation.X++;
+                shipLocation.X = shipLocation.X - (shipVelocity.X * 2);
             }
-            else if (random == 1)
+            if (shipLocation.Y >= (399 - shipSize) || shipLocation.Y <= 1)
             {
-                ShipLocation.X--;
+                shipLocation.Y = shipLocation.Y - (shipVelocity.Y * 2);
             }
-            else if (random == 2)
+
+            usePetrol();
+        }
+        public void OnEmptyEvent()
+        {
+            //custom event args that holds the ship location?
+            ShipLocationEventArgs e = new ShipLocationEventArgs(shipLocation);
+            //custom delegate that uses that event args
+            if (OutOfFuelEvent != null)
             {
-                ShipLocation.Y++;
+                //call event passing the ship location in the eventargs
+                OutOfFuelEvent(this, e);
             }
-            else if (random == 3)
+        }
+        public void onFullEvent()
+        {
+            EventArgs e = new EventArgs();
+            if (FullOfFuelEvent != null)
             {
-                ShipLocation.Y--;
+                FullOfFuelEvent(this , e);
             }
+            
+        }
+        public void shipCycle()
+        {
+            //if sailing
+            if (sailing)
+            {
+                if (petrol == 1)
+                {
+                    OnEmptyEvent();
+                }
+            }
+
+            //if fueling
+            if (!sailing)
+            {
+                if (petrol == 100)
+                {
+                    onFullEvent();
+                }
+            }
+
         }
         public void drawShip()
         {
-
-            shipColour = Color.FromArgb(100, 0, 0);
+            //draw ship based on colour
+            shipColour = Color.FromArgb(petrol, 0, 0);
 
             SolidBrush shipBrush = new SolidBrush(shipColour);
 
-            mainCanvas.FillRectangle(shipBrush, ShipLocation.X, ShipLocation.Y, size, size);
+            mainCanvas.FillRectangle(shipBrush, shipLocation.X, shipLocation.Y, shipSize, shipSize);
         }
         public void refuel()
         {
             petrol++;
+        }
+        public void usePetrol()
+        {
+            petrol--;
         }
     }
 }
