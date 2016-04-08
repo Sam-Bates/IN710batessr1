@@ -16,7 +16,7 @@ namespace PetrolBots
         public const int BOT_SIZE = 10;
 
         
-        Graphics mainCanvas;
+        Graphics Canvas;
         List<PetrolBot> botList;
         List<Ship> shipList;
         Random rand;
@@ -26,36 +26,29 @@ namespace PetrolBots
         {
             InitializeComponent();
 
-            mainCanvas = CreateGraphics();
-            backgroundBrush = new SolidBrush(Color.White);
+            Canvas = this.CreateGraphics();
+            backgroundBrush = new SolidBrush(Color.Red);
 
             botList = new List<PetrolBot>();
             shipList = new List<Ship>();
 
             rand = new Random();
 
-            Ship s1 = new Ship(SHIP_SIZE, mainCanvas, rand);
+            Ship s1 = new Ship(SHIP_SIZE, Canvas, rand);
 
             shipList.Add(s1);
-
         }
 
-        public void tick()
+        private void timer1_Tick_1(object sender, EventArgs e)
         {
-            mainCanvas.FillRectangle(backgroundBrush, 0, 0, 500, 500);
+            Canvas.FillRectangle(backgroundBrush, 0, 0, 500, 500);
 
-            //Move & redraw all ships in the list
+            //Move and redraw all ships in the list
             for (int i = 0; i < shipList.Count; i++)
             {
                 shipList[i].moveShip();
                 shipList[i].drawShip();
             }
-
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            tick();
         }
     }
 }
