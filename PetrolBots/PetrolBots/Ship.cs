@@ -39,16 +39,20 @@ namespace PetrolBots
         }
         public void moveShip()
         {
-            if (shipLocation.X >= (500 - shipSize * 2) || (shipLocation.X <= 1))
+            if (sailing)
             {
-                shipLocation.X = shipLocation.X - (shipVelocity.X * 4);
-            }
-            if (shipLocation.Y >= (399 - shipSize) || shipLocation.Y <= 1)
-            {
-                shipLocation.Y = shipLocation.Y - (shipVelocity.Y * 4);
-            }
+                if (shipLocation.X >= (500 - shipSize * 2) || (shipLocation.X <= 1))
+                {
+                    shipVelocity.X = shipVelocity.X - (shipVelocity.X * 2);
+                }
+                if (shipLocation.Y >= (399 - shipSize) || shipLocation.Y <= 1)
+                {
+                    shipVelocity.Y = shipVelocity.Y - (shipVelocity.Y * 2);
+                }
 
-            
+                shipLocation.X = shipLocation.X + shipVelocity.X;
+                shipLocation.Y = shipLocation.Y + shipVelocity.Y;
+            }
         }
         public void OnEmptyEvent()
         {
