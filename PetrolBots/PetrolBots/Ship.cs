@@ -30,24 +30,25 @@ namespace PetrolBots
             this.shipSize = size;
             this.mainCanvas = mainCanvas;
             this.rand = rand;
-            shipLocation.X = 50;
-            shipLocation.Y = 50;
-            petrol = 100;
+            shipLocation.X = rand.Next(300);
+            shipLocation.Y = rand.Next(300);
+            petrol = rand.Next(100);
             sailing = true;
             shipVelocity = new Point(rand.Next(-3, 3), rand.Next(-3, 3));
 
         }
         public void moveShip()
         {
+            //only move the ship if it is currently sailing
             if (sailing)
             {
-                if (shipLocation.X >= (500 - shipSize * 2) || (shipLocation.X <= 1))
+                if (shipLocation.X >= (599 - shipSize * 2) || (shipLocation.X <= 1))
                 {
-                    shipVelocity.X = shipVelocity.X - (shipVelocity.X * 2);
+                    shipLocation.X = shipLocation.X - (shipVelocity.X * 2);
                 }
                 if (shipLocation.Y >= (399 - shipSize) || shipLocation.Y <= 1)
                 {
-                    shipVelocity.Y = shipVelocity.Y - (shipVelocity.Y * 2);
+                    shipLocation.Y = shipLocation.Y - (shipVelocity.Y * 2);
                 }
 
                 shipLocation.X = shipLocation.X + shipVelocity.X;
@@ -67,12 +68,13 @@ namespace PetrolBots
         }
         public void onFullEvent()
         {
+            //creating default, empty eventArgs
             EventArgs e = new EventArgs();
             if (FullOfFuelEvent != null)
             {
-                FullOfFuelEvent(this , e);
+                FullOfFuelEvent(this, e);
             }
-            
+
         }
         public void shipCycle()
         {
