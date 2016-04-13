@@ -37,11 +37,13 @@ namespace PetrolBots
 
             botCanvas.FillRectangle(shipBrush, botCurrentLocation.X, botCurrentLocation.Y, botSize, botSize);
         }
+        //executed when the fuel is empty
         public void OnEmptyEventCode(object obj, ShipLocationEventArgs e)
         {
             botCurrentLocation.X = e.location.X;
             botCurrentLocation.Y = e.location.Y;
         }
+        //executed when the fuel is full
         public void OnFullEventCode(object obj, EventArgs e)
         {
             botCurrentLocation.X = botStartingLocation.X;
