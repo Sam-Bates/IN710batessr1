@@ -59,5 +59,18 @@ namespace CitiesLambda
                 }
             }
         }
+        private void MultiplayPopulation()
+        {
+            //think of x as currCity in the foreach
+            //multiply population by 3 foreach city
+            CityList.ForEach((x) => x.Population *= 3);
+            CityList.ForEach((x) => listBox1.Items.Add(x.ToString()));
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            MultiplayPopulation();
+        }
     }
 }
