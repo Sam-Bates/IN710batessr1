@@ -71,10 +71,10 @@ namespace Art_Database_1
                            select p.ToString(); //select it's ToString();
 
             foreach (String p in allPaintings)
-            { 
+            {
                 listBox1.Items.Add(p); // print all results
             }
-                
+
         }
 
 
@@ -119,7 +119,16 @@ namespace Art_Database_1
         //------------------------------------------------------
         private void btnOldest_Click(object sender, EventArgs e)
         {
-            
+            listBox1.Items.Clear();
+            int oldest = paintings.Min(p => p.Year);
+
+            IEnumerable<String> a = from p in paintings
+                                    where p.Year.Equals(oldest)
+                                    select p.ToString();
+            foreach (var item in a)
+            {
+                listBox1.Items.Add(item.ToString());
+            }
         }
 
         //------------------------------------------------------
@@ -145,16 +154,17 @@ namespace Art_Database_1
         //------------------------------------------------------
         private void btnNbyCountry_Click(object sender, EventArgs e)//this is wrong, it is counting how many artists are from each country
         {
-            var groupedbyCountry = from a in artists
-                                   group a by a.Country;
+            var join = from a in artists
+                       join p in paintings
+                       on a.LastName equals p.Artist
+                       select new { a.LastName, p.Artist };
 
-            foreach (var group in groupedbyCountry)
+
+            foreach (var item in join)
             {
-                String countryName = group.Key;
-
-                int paintingCount = group.Count();
-                listBox1.Items.Add(paintingCount + " painting from " + countryName);
+                listBox1.Items.Add(item);
             }
+
         }
 
         //------------------------------------------------------
@@ -165,6 +175,26 @@ namespace Art_Database_1
             listBox1.Items.Clear();
 
 
+            //groupedByCountry becomes a collect of artists, grouped by country
+            var groupedByCountry = from c in artists
+                                   group c by c.Country;
+
+            foreach (var group in groupedByCountry)
+            {
+                //Country name is the key because that is what we grouped on
+                String countryName = group.Key;
+
+                //count the number of entries in the current grouping
+                int countryCount = group.Count();
+                listBox1.Items.Add(countryName + ": " + countryCount);
+                //loop through each artist in the grouping
+                foreach (Artist artist in group)
+                {
+                    //output each artists name
+                    listBox1.Items.Add("\t" + artist.LastName);
+                }
+            }
+
         }
 
         //------------------------------------------------------
@@ -172,7 +202,6 @@ namespace Art_Database_1
         //------------------------------------------------------
         private void button7_Click(object sender, EventArgs e)
         {
-          
         }
 
         //------------------------------------------------------
@@ -180,7 +209,7 @@ namespace Art_Database_1
         //------------------------------------------------------
         private void button4_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         //------------------------------------------------------
@@ -188,9 +217,9 @@ namespace Art_Database_1
         //------------------------------------------------------
         private void button9_Click(object sender, EventArgs e)
         {
-          
+
         }
 
- 
+
     }
 }
