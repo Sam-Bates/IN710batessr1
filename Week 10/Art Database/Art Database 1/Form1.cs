@@ -152,18 +152,8 @@ namespace Art_Database_1
         //------------------------------------------------------
         // btnNbyCountry
         //------------------------------------------------------
-        private void btnNbyCountry_Click(object sender, EventArgs e)//this is wrong, it is counting how many artists are from each country
+        private void btnNbyCountry_Click(object sender, EventArgs e)
         {
-            var join = from a in artists
-                       join p in paintings
-                       on a.LastName equals p.Artist
-                       select new { a.LastName, p.Artist };
-
-
-            foreach (var item in join)
-            {
-                listBox1.Items.Add(item);
-            }
 
         }
 
@@ -202,6 +192,18 @@ namespace Art_Database_1
         //------------------------------------------------------
         private void button7_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
+
+            var join = from p in paintings
+                           join a in artists
+                           on p.Artist equals a.LastName //join where the painting artist matches the artists lastname
+                           where a.Country.Equals("Netherlands") 
+                           select new { a.FirstName, a.LastName, a.Country, p.Title };
+
+            foreach (var item in join)
+            {
+                listBox1.Items.Add(item.FirstName + " " + item.LastName + "\t " + item.Country + "\t " + item.Title);
+            }
         }
 
         //------------------------------------------------------
@@ -209,7 +211,16 @@ namespace Art_Database_1
         //------------------------------------------------------
         private void button4_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
 
+            var join = from p in paintings
+                       join a in artists
+                       on p.Artist equals a.LastName
+                       select new { a.FirstName, a.LastName, a.Country, p.Title };
+            foreach (var item in join)
+            {
+                listBox1.Items.Add(item.FirstName + " " + item.LastName + "\t" + item.Country + "\t \t" + item.Title);
+            }
         }
 
         //------------------------------------------------------
@@ -217,7 +228,19 @@ namespace Art_Database_1
         //------------------------------------------------------
         private void button9_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
 
+            var join = from p in paintings
+                       join a in artists
+                       on p.Artist equals a.LastName //join where the painting artist matches the artists lastname
+                       where a.Country.Equals("France") || a.Country.Equals("Italy")
+                       orderby a.Country
+                       select new { a.FirstName, a.LastName, a.Country, p.Title };
+
+            foreach (var item in join)
+            {
+                listBox1.Items.Add(item.FirstName + " " + item.LastName + "\t " + item.Country + "\t " + item.Title);
+            }
         }
 
 
