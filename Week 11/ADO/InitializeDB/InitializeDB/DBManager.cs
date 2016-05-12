@@ -36,12 +36,16 @@ namespace InitializeDB
 
             bitdevConnection.Close();
         }
-
+        private void addTutor(String FirstName, String LastName, String Email)
+        {
+            String q = "INSERT INTO dbo.tblTutors VALUES ('" + FirstName + "', '" + LastName + "', '" + Email + "');";
+            SqlCommand sqlcmd = new SqlCommand(q, bitdevConnection);
+            sqlcmd.ExecuteNonQuery();
+        }
         private void insertAllAssignments()
         {
-            String q = "INSERT INTO dbo.tblTutors VALUES ('Patricia', 'Haden', 'phaden@op.ac.nz', '555555555');";
-            SqlCommand sqlcmd = new SqlCommand(q,bitdevConnection);
-            sqlcmd.ExecuteNonQuery();
+            addTutor("Patricia", "Haden", "phaden@op.ac.nz");
+            addTutor("Christopher", "Frantz", "cfrantz@op.ac.nz");
         }
         
         private void createTutorsTable()
