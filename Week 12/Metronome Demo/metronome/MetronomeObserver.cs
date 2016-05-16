@@ -54,16 +54,28 @@ namespace metronome
     public class Counter : MetronomeObserver
     {
         private NumericUpDown spinBox;
-
+        delegate void updateForm();//create void delegate
         public Counter(Metronome metronome, NumericUpDown spinBox)
             : base(metronome)
         {
             this.spinBox = spinBox;
         }
+        public void setSpinBox()//this gets bound to the updateForm delegate
+        {
+            spinBox.Value++;  
+        }
 
         public override void onMetronomeEvent(object sender, metronomeEventArgs e)
         {
-                spinBox.Value++;  
+            if (spinBox.InvokeRequired)//check if it's not thread safe?
+            {
+                updateForm d = new updateForm(setSpinBox);//attach method to delegate
+                spinBox.Invoke(d);//call the invoke method and pass in only the delegate because there is no data to send.
+            }
+            else
+            {
+                setSpinBox();
+            }
         }
     } // end TCounter
 
@@ -71,6 +83,7 @@ namespace metronome
     //----------------------------------------------------------------------------
     public class TimeDisplay : MetronomeObserver
     {
+        delegate void updateForm(DateTime dt);//create delegate that takes in dateTime signature
         private ListBox listBox;
 
         public TimeDisplay(Metronome metronome, ListBox listBox)
@@ -78,18 +91,22 @@ namespace metronome
         {
             this.listBox = listBox;
         }
-
+        public void setDateTime(DateTime dt)//method that will be bound to updateForm delegate
+        {
+            listBox.Items.Add(dt.ToString());  
+        }
         public override void onMetronomeEvent(object sender, metronomeEventArgs e)
         {
-            DateTime currDateTime = e.currentTime;
-            listBox.Items.Add(currDateTime.ToString());         
+            DateTime dt = e.currentTime;//metronomeEventArgs comes with dateTime, so set it
+            if (listBox.InvokeRequired)//not entirely sure what this means but I know I need it.
+            {
+                updateForm d = new updateForm(setDateTime);//attach setDateTime method to the delegate
+                listBox.Invoke(d, dt);//call the invoke method and pass in the delegate(that has the setDateTime attached) and pass in the dateTime object
+            }
+            else
+            {
+                setDateTime(dt);
+            }
         }
     }
-
-
-
-
-
-
-            
 }
