@@ -19,7 +19,7 @@ namespace Animal_Noises
 
         private List<Animal> animalList;
         private List<Thread> threadList;
-      
+        string sharedValue;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -30,16 +30,22 @@ namespace Animal_Noises
         {
             animalList = new List<Animal>();
             threadList = new List<Thread>();
+            sharedValue = "a";
 
-            animalList.Add(new Animal("frog.wav"));
-            animalList.Add(new Animal("duck.wav"));
-            animalList.Add(new Animal("meow.wav"));
+            animalList.Add(new Animal("frog.wav", sharedValue));
+            animalList.Add(new Animal("duck.wav", sharedValue));
+            animalList.Add(new Animal("meow.wav", sharedValue));
 
             for (int i = 0; i < animalList.Count; i++)
-                threadList.Add(new Thread(animalList[i].speak)); 
-            
+            {
+                threadList.Add(new Thread(animalList[i].speak));
+            }
+
+
             for (int i = 0; i < animalList.Count; i++)
+            {
                 threadList[i].Start();
+            }
            
         }
 
