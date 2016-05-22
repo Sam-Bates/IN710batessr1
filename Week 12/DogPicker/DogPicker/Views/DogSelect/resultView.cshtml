@@ -1,0 +1,39 @@
+﻿@model DogPicker.Models.Dog
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>resultView</title>
+</head>
+<body>
+    <div> 
+        <p>Ideal dog is a: @Model.DisplayName</p>
+        <p>
+            <img src="/Images/@Model.ImageName" />
+
+            Activity Level: @Model.ActivityLevel<br />
+
+            Shedding Level: @Model.SheddingLevel<br />
+
+            Grooming Level: @Model.GroomingLevel<br />
+
+            Intelligence: @Model.IntelligenceLevel<br />
+
+            Coat: @Model.CoatLength<br />
+
+            Size: @Model.Size<br /><br />
+
+            Drools: @Model.Drools<br />
+
+            Children: @Model.GoodWithChildren
+        </p>
+    </div>
+</body>
+</html>
+>

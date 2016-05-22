@@ -7,6 +7,6 @@ namespace DogPicker.Models
 {
     public enum EScale
     {
-        Low, Medium, High
+        NoPreference, Low, Medium, High
     }
 }
