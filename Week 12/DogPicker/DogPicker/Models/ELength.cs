@@ -7,6 +7,6 @@ namespace DogPicker.Models
 {
     public enum ELength
     {
-        Short, Medium, Long
+        NoPreference, Short, Medium, Long
     }
 }

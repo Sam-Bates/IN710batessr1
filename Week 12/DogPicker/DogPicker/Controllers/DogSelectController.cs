@@ -77,15 +77,18 @@ namespace DogPicker.Controllers
         public int calculateScore(int currdogValue, int newdogValue)
         {
             //check if the value is the same or if it is close
+            if (newdogValue == 0)
+            {
+                return MATCHINGPOINT;
+            }
             if (currdogValue == newdogValue)
             {
                 return MATCHINGPOINT;
             }
-            else if (currdogValue == newdogValue + 1 || currdogValue == newdogValue - 1)
+            if (currdogValue == newdogValue + 1 || currdogValue == newdogValue - 1)
             {
                 return CLOSEMATCH;
             }
-
             return 0;//no points
         }
         public int calculateScoreBool(bool currdogBool, bool newdogBool)
