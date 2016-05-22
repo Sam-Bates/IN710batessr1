@@ -9,6 +9,8 @@ namespace DogPicker.Controllers
     public class DogSelectController : Controller
     {
         List<Dog> dogList;
+        const int MATCHINGPOINT = 10;
+        const int CLOSEMATCH = 5;
         // GET: DogSelect
         public ActionResult Index()
         {
@@ -24,6 +26,7 @@ namespace DogPicker.Controllers
         {
             dogList = makeDatabase();
 
+            //create a half-baked dog that has all the parameters the user would prefer
             Dog idealDog = new Dog();
             idealDog.GoodWithChildren = GoodWithChildren;
             idealDog.Drools = Drools;
@@ -34,13 +37,64 @@ namespace DogPicker.Controllers
             idealDog.GroomingLevel = GroomingLevel;
             idealDog.IntelligenceLevel = IntelligenceLevel;
 
-            //choose best dog based on inputs
-            //pass dog to view
-            return View("resultView",dogList[1]);//return results here
+
+            idealDog = calculateIdealDog(idealDog, dogList);
+
+            return View("resultView", idealDog);
         }
-        private Dog idealDog(Dog dog)
+        private Dog calculateIdealDog(Dog dog, List<Dog> dogList)
         {
-            return dog;//choose and return ideal dog here
+            int[] scores = new int[dogList.Count];
+            int count = 0;
+            //loop through the dog list and caluclate a score for each dog
+            foreach (var currDog in dogList)
+            {
+                scores[count] += calculateScore((int)currDog.ActivityLevel, (int)dog.ActivityLevel);
+                scores[count] += calculateScore((int)currDog.SheddingLevel, (int)dog.SheddingLevel);
+                scores[count] += calculateScore((int)currDog.GroomingLevel, (int)dog.GroomingLevel);
+                scores[count] += calculateScore((int)currDog.IntelligenceLevel, (int)dog.IntelligenceLevel);
+                scores[count] += calculateScoreBool(currDog.GoodWithChildren, dog.GoodWithChildren);
+                scores[count] += calculateScoreBool(currDog.Drools, dog.Drools);
+                scores[count] += calculateScore((int)currDog.CoatLength, (int)dog.CoatLength);
+                scores[count] += calculateScore((int)currDog.Size, (int)dog.Size);
+                count++;
+            }
+
+            //get the max value's index
+            int maxIndex = -1, maxValue = -1, i = 0;
+            foreach (int currIndex in scores)
+            {
+                if ((maxIndex < 0) || (currIndex > maxValue))
+                {
+                    maxValue = currIndex;
+                    maxIndex = i;
+                }
+                i++;
+            }
+
+            return dogList[maxIndex];
+        }
+        public int calculateScore(int currdogValue, int newdogValue)
+        {
+            //check if the value is the same or if it is close
+            if (currdogValue == newdogValue)
+            {
+                return MATCHINGPOINT;
+            }
+            else if (currdogValue == newdogValue + 1 || currdogValue == newdogValue - 1)
+            {
+                return CLOSEMATCH;
+            }
+
+            return 0;//no points
+        }
+        public int calculateScoreBool(bool currdogBool, bool newdogBool)
+        {
+            if (currdogBool == newdogBool)
+            {
+                return MATCHINGPOINT;
+            }
+            return 0;//no points
         }
         private List<Dog> makeDatabase()
         {
